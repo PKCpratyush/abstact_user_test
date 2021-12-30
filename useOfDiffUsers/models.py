@@ -8,7 +8,7 @@ class Custom_manager(BaseUserManager):
 
     def create_superuser(self, user_name, password, **other_fields):
         other_fields.setdefault('is_staff', True)
-        other_fields.setdefault('is_superuser', False)
+        other_fields.setdefault('is_superuser', True)
         other_fields.setdefault('is_active', True)
 
         if other_fields.get('is_staff') is not True:
