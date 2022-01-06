@@ -50,6 +50,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
+
 ROOT_URLCONF = 'diifrentUserClassandUses.urls'
 
 TEMPLATES = [

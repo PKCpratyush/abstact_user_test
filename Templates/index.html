@@ -8,8 +8,9 @@
 <body>
 
 
-    <h1>Hello Base page</h1>
+    
     {% if session_exist %}
+    <h1>Hello {{ name }}</h1>
         <form action="{% url 'saveit' %}" method="GET">
             <button type="submit"> Back to Home Page </button>
         </form>
@@ -17,8 +18,9 @@
             <button type="submit"> Log Out </button>
         </form>
     {% else %}
+    <h1>Hello Base page</h1>
     <form action="{% url 'saveit' %}" method="GET">
-        <input type="text" name="name" id="" placeholder="user name">
+        <input type="text" name="user_name" id="" placeholder="user name">
         <input type="password" name="password" id="" placeholder="password">
         <button type="submit">Submit</button>
     </form>

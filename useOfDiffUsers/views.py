@@ -8,23 +8,23 @@ def index(request):
 
 def saveit(request):
     if 'name' in request.session:
-        return render(request, 'index.html',{"session_exist": True})
+        return render(request, 'index.html',{"session_exist": True, "name" : request.session.get('name')})
 
-    name = request.GET.get("name",'')
+    user_name = request.GET.get("user_name",'')
     password = request.GET.get("password",'')
 
-    request.session['name'] = name
+    request.session['name'] = user_name
 
     # user = New_user(user_name = name, password = password, is_staff = True, is_active = True, is_superuser = True)
     # user.save()
-    user = New_user(user_name = name, password = password, is_staff = True, is_active = True)
+    user = New_user(user_name = user_name, password = password, is_staff = True, is_active = True)
     user.save()
-    name = ""
+    user_name = ""
     password = ""
-    return render(request, 'index.html',{"session_exist": True})
+    return render(request, 'index.html',{"session_exist": True, "name" : request.session.get('name')})
 
 
-def session__delete(request):
+def session_delete(request):
     if 'name' in request.session:
         del request.session['name']
     return render(request, 'index.html', {"session_exist": False})
